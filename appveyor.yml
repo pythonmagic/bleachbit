@@ -5,6 +5,7 @@ environment:
 init:
   - 'echo PYTHON_HOME=%PYTHON_HOME%'
   - ver
+  - ps: iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/appveyor/ci/master/scripts/enable-rdp.ps1'))
 
 install:
   - '%PYTHON_HOME%\python.exe -V'
@@ -22,6 +23,7 @@ cache:
   - pygtk-all-in-one-2.24.2.win32-py2.7.msi
 
 build_script:
+  - "c:\mingw\bin\mingw32-make.exe -C po local"
   - windows/setup_py2exe.bat
 
 
