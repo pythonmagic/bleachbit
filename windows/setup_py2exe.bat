@@ -17,7 +17,8 @@ REM You should have received a copy of the GNU General Public License
 REM along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 
-set GTK_DIR=c:\gtk
+
+
 set NSIS_EXE="c:\program files\nsis\makensis.exe"
 if not exist c:\python27 goto py25
 set PYTHON_DIR=c:\python27
@@ -30,6 +31,9 @@ set PYTHON_VER=25
 set SZ_EXE="C:\Program Files\7-Zip\7z.exe"
 set UPX_EXE=upx.exe
 set UPX_OPTS=--best --crp-ms=999999 --nrv2e
+
+set GTK_DIR=c:\gtk
+if exist "%PYTHON_DIR\Lib\site-packages\gtk-2.0\runtime" GTK_DIR="%PYTHON_DIR%\Lib\site-packages\gtk-2.0\runtime"
 
 echo Checking for 32-bit Python
 %PYTHON_DIR%\python.exe  -c "import struct;bits= 8 * struct.calcsize('P');print 'Python bits:', bits;exit(0 if bits==32 else 1)"
