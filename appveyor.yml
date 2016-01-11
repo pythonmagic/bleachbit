@@ -5,8 +5,7 @@ environment:
 init:
   - 'echo PYTHON_HOME=%PYTHON_HOME%'
   - ver
-  - ps: iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/appveyor/ci/master/scripts/enable-rdp.ps1'))
-
+G
 install:
   - '%PYTHON_HOME%\python.exe -V'
   - '%PYTHON_HOME%\Scripts\pip.exe --version'
@@ -30,3 +29,7 @@ build_script:
 test_script:
  - echo no test today
  #- '%PYTHON_HOME%\python.exe tests\TestAll.py'
+
+on_finish:
+- ps: $blockRdp = $true; iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/appveyor/ci/master/scripts/enable-rdp.ps1'))
+
