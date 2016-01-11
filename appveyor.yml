@@ -5,7 +5,7 @@ environment:
 init:
   - 'echo PYTHON_HOME=%PYTHON_HOME%'
   - ver
-G
+
 install:
   - '%PYTHON_HOME%\python.exe -V'
   - '%PYTHON_HOME%\Scripts\pip.exe --version'
