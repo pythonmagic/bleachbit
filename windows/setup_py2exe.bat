@@ -116,7 +116,7 @@ if not exist %CANARY% goto error_canary
 
 echo Checking for Linux-only cleaners
 if exist dist\share\cleaners\wine.xml echo "grep -l os=.linux. dist/share/cleaners/*xml | xargs rm -f"
-if exist dist\share\cleaners\wine.xml pause
+REM if exist dist\share\cleaners\wine.xml pause
 
 echo Signing code
 call CodeSign.bat dist\bleachbit.exe
